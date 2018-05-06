@@ -1,0 +1,37 @@
+{% extends 'board/base.html' %}
+
+{% block content %}
+	<div class='forum-titlebar'>
+		Forum Title
+	</div>
+	<div class='forum-bg'>
+		<div class='forumb-bg-inner'>
+			<div class='forum-header'>
+				<span class='section-topics'>FORUM</span>
+				<span class='section-replies'>TOPICS</span>
+				<span class='section-views'>POSTS</span>
+				<span class='section-last'>LAST</span>
+			</div>
+			<div class='forum-topics'>
+				{% if forum_list %}
+					{% for f in forum_list %}
+					<div class='topic-row'>
+				 		<span class='topic-row-title section-tipics'>
+				 			<a href="{% url 'viewforum' f.id %}" class='section-topics'>{{ f.name }}</a>
+				 		</span>
+				 			<span class='section-replies topic-row-replies'>{{ f.topics_count }}</span>
+							<span class='section-views topic-row-views'>{{ f.post_count }}</span>
+						<div style='display:inline;'>	
+							<span class='section-last topic-row-last'>{{ f.last_post_author }} - {{ f.last_post_created }}</span>
+				 		</div>
+						</br>
+					</div>
+					{% endfor %}
+				{% else %}
+					<p>No forums available</p>
+				{% endif %}
+			</div>
+			<br>
+		</div>
+	</div>
+{% endblock %}

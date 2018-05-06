@@ -1,0 +1,49 @@
+{% extends 'board/base.html' %}
+
+{% block content %}
+	<div class='forum-titlebar'>
+		{{ forum.name }}
+	</div>
+	<div class='forum-bg'>
+		<div class='forumb-bg-inner'>
+			<div class='forum-header'>
+				<span class='section-topics'>TOPIC</span>
+				<span class='section-replies'>REPLIES</span>
+				<span class='section-views'>VIEWS</span>
+				<span class='section-last'>LAST</span>
+			</div>
+			<div class='forum-topics'>
+				{% if topic_list %}
+					{% for t in topic_list %}
+					<div class='topic-row'>
+						<div class='topic-row-posticon'>
+							<img class='topic-row-posticon' src='/static/posticons/{{ t.post_icon.filename }}'>
+						</div>
+				 		<span class='topic-row-title section-topics'>
+				 			<a href="{% url 'viewtopic' t.id %}">{{ t.title }}</a>
+				 		</span>
+				 			<span class='section-replies topic-row-replies'>{{ t.reply_count }}</span>
+							<span class='section-views topic-row-views'>{{ t.view_count }}</span>
+						<div style='display:inline;'>	
+							<span class='section-last topic-row-last'><a href="{% url 'profile' t.last_post_author_id %}">{{ t.last_post_author }}</a> - {{ t.last_post_created }}</span>
+				 		</div>
+						</br>
+				 		<span class='topic-row-user'><a href="{% url 'profile' t.author_id %}">{{ t.author }}</a></span>&nbsp;
+				 		<span class='topic-row-created'>{{ t.created }}</span>
+					</div>
+					{% endfor %}
+				{% else %}
+					<p>No topics available</p>
+				{% endif %}
+			</div>
+			<br>
+		</div>
+	</div>
+	<div>
+	{% if user.is_authenticated %}
+		<a href="{% url 'new_post' forum.id %}">Make new post</a><br>
+	{% else %}
+		<span>You must be logged in to post</span>
+	{% endif %}
+	</div>
+{% endblock %}

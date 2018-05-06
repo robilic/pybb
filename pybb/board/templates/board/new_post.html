@@ -1,0 +1,29 @@
+{% extends 'board/base.html' %}
+
+{% block content %}
+
+	<div class='feature-titlebar'>
+		Create New Post
+	</div>
+	<div class='feature-upper'>
+			<form action="{% url 'submit_new_post' forum.id %}" method='post'>
+			{% csrf_token %}
+				<div class='newpost-title'>
+					Title: <input type='text' name='topic_title' id='topic_title'/>
+				</div>
+				<div class='newpost-icons'>
+				Icon: 
+				{% for i in posticons %}
+					<input type='radio' name='post_icon' id='icon{{ i.id }}' value='{{ i.id }}'>
+					<img class='posticon' src='/static/posticons/{{ i.filename }}''>
+				{% endfor %}
+				</div>
+				<div class='newpost-body'>
+					<textarea name='post_body' id='post_body' rows='10' cols='60'/></textarea>
+				</div>
+				<div class='newpost-submit'>
+					<input type='submit' value='Create'/>
+				</div>
+			</form>
+	</div>
+{% endblock %}

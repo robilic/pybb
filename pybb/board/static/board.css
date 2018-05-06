@@ -1,0 +1,92 @@
+
+textarea, input, button, select { font-family: inherit; font-size: inherit; }
+
+body { background-color: #909090; margin: 0px; }
+
+a:link { font-weight: bold; color: #1e4662; text-decoration: none; }
+a:visited { font-weight: bold; color: #3985bd; text-decoration: none; }
+a:hover { font-weight: bold; color: #d41142; text-decoration: underline; }
+
+.page-body { background-color: #909090; padding: 15px; }
+.pybb { max-width: 1152px; margin: auto; border: 2px solid white; border-radius: 14px;
+		background: linear-gradient(lightgray, white); padding: 15px; font-size: 14px; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; }
+
+.page-header { background-image: url("/static/header.jpg"); min-height: 150px; border-radius: 7px; }
+.page-footer { font-color: darkgray; font-size: 85%; text-align: center; }
+
+.error-msg { font-family: monospace; }
+
+.forum-titlebar { color: #193b53; padding-top: 8px; padding-bottom: 5px; }
+.forum-title-info { float:right; color: DimGray; font-size: 80%; }
+.forum-bg { background-color: #536482;  border-radius: 7px; }
+.forum-bg-inner {}
+.forum-header { color: AliceBlue; font-size: 90%; padding: 3px; margin: 2px 4px 2px 4px; }
+.forum-header-topics {}
+
+.feature-titlebar { color: #193b53; padding-top: 8px; padding-bottom: 5px; }
+.feature-upper { padding: 10px; background-color:#d4e5f2; color:#193b53; font-size: 85%; border-radius: 7px; overflow: auto; }
+.feature-lower { padding: 10px; background-color:#e8f1f8; color:#193b53; font-size: 85%; border-radius: 7px; overflow: auto; }
+
+.pm-left { float: left; display: inline; padding: 5px; }
+.pm-right { display: inline-block; padding: 5px; }
+.pm-header { background-color: Gainsboro; border: 3px; border-color: Gainsboro; border-style: solid; width: 600px; }
+.pm-icon { display: inline; }
+.pm-icon img { height: 20px; width: 20px; display: inline; }
+.pm-subject { display: inline-block; vertical-align: top; color: #193b53; font-size: 120%; font-weight: bold; }
+.pm-info { font-size: 90%; }
+.pm-field { font-weight: bold; }
+.pm-value { font-weight: normal; }
+.pm-body { font-size: 100%; background-color: WhiteSmoke; border: 1px; padding: 5px; border-style: solid; border-color: Gainsboro; }
+
+.navbar { background-color:#e8f1f8; color:#193b53; font-size: 85%; border-radius: 7px; }
+.navbar a:link { font-weight: bold; color: #1e4662; text-decoration: none; }
+.navbar a:visited { font-weight: bold; color: #3985bd; }
+.navbar a:hover { font-weight: bold; text-decoration: underline; }
+.navbar-inner { padding: 8px; margin: 4px 4px 4px 4px; }
+.navbar-main { font-weight: bold; }
+.navbar-left { float: left; }
+.navbar-right { float: right; }
+.navbar-breadcrumbs { clear: both; }
+
+.profile-upper { padding: 10px; background-color:#d4e5f2; color:#193b53; font-size: 85%; border-radius: 7px; overflow: auto; }
+.profile-lower { padding: 10px; background-color:#e8f1f8; color:#193b53; font-size: 85%; border-radius: 7px; overflow: auto; }
+.profile-avatar { float: left; display: inline; padding: 5px 10px 5px 10px; }
+.profile-info { display: inline-block; padding: 5px 10px 5px 50px; }
+
+/* forums */
+.section-topics { display: inline-block; width: 50%; padding: 2px; }
+.section-replies { display: inline-block; width: 70px; }
+.section-views { display: inline-block; width: 70px; }
+.section-last { display: inline-block; width: 25%; }
+
+/* private messages */
+.section-icon { display: inline-block; width: 25px; }
+.section-subject { display: inline-block; width: 50%; padding: 2px; }
+.section-from { display: inline-block; width: 70px; }
+.section-date { display: inline-block; width: 70px; }
+
+.section-post-userprofile { float: left; width: 200px; min-height: 150px; }
+.section-post-body { min-height:150px; overflow: hidden; }
+
+.topic-row:nth-child(odd){ padding: 5px; margin: 1px 6px 1px 6px; background-color: #d4e5f2; }
+.topic-row:nth-child(even){ padding: 5px; margin: 1px 6px 1px 6px; background-color: #e8f1f8; }
+.topic-row-title { font-weight: bold; font-size: 90%; color: #1e4662; }
+.topic-row-replies { font-size: 80%; }
+.topic-row-views { font-size: 80%; }
+.topic-row-last { font-size: 80%; }
+.topic-row-user { display: inline; font-size: 80%; }
+.topic-row-created { display: inline; font-size: 80%; }
+.topic-row-posticon { display: inline; }
+.topic-row-posticon img { height: 20px; width: 20px; display: inline; }
+
+.post-bg {}
+.post-container { padding: 3px; background-color: #d4e5f2; margin: 3px 0px 3px 0px; border-color: #71aad4; border-style: solid; border-width: 1px;  border-radius: 7px; }
+.post-username { font-size: 85%; font-weight:bold; color: #193b53; }
+.post-field { font-size: 80%; }
+.post-fielddata { font-size: 80%; color: DimGray; }
+.post-title { color: #102635; font-size: 90%; padding: 3px; }
+.post-detail { font-size: 80%; color: DimGray; }
+.post-body { font-size: 90%; }
+.post-reply-box { text-align: center; padding: 3px; }
+
+.posticon { width:20px; height:20px; }

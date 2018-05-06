@@ -1,0 +1,45 @@
+{% extends 'board/base.html' %}
+
+{% block content %}
+
+	<div class='feature-titlebar'>
+		Private Messages
+	</div>
+	<div class='feature-upper'>
+	<div class='forum-bg'>
+		<div class='forumb-bg-inner'>
+			<div class='forum-header'>
+				<span class='section-icon'></span>
+				<span class='section-subject'>SUBJECT</span>
+				<span class='section-from'>FROM</span>
+				<span class='section-date'>DATE</span>
+			</div>
+			<div class='forum-topics'>
+				{% if private_message_list %}
+					{% for pm in private_message_list %}
+					<div class='topic-row'>
+						<div class='topic-row-posticon'>
+							<img class='topic-row-posticon' src='/static/posticons/{{ pm.post_icon.filename }}'>
+						</div>
+				 		<span class='topic-row-title section-topics'>
+				 			<a href="{% url 'messages_view' pm.id %}">{{ pm.subject }}</a>
+				 		</span>
+				 		<span class='topic-row-user'><a href="{% url 'profile' pm.author_id %}">{{ pm.author }}</a></span>&nbsp;
+				 		<span class='topic-row-created'>{{ pm.created }}</span>
+					</div>
+					{% endfor %}
+				{% else %}
+				<div class="topic-row">
+					<p>You have no private messages</p>
+				</div>
+				{% endif %}
+			</div>
+			<br>
+			<a href="{% url 'messages_new' %}"><button type="button">Create New</button></a>
+		</div>
+	</div>
+	</div>
+	<div class='feature-lower'>
+		Contact | User Stats | Posts
+	</div>
+{% endblock %}

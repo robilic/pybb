@@ -1,0 +1,35 @@
+{% extends 'board/base.html' %}
+
+{% block content %}
+
+	<div class='feature-titlebar'>
+		Private Messages - Compose
+	</div>
+	<div class='feature-upper'>
+			<form action="{% url 'submit_message' %}" method='post'>
+			{% csrf_token %}
+				<div class='pm-recipient'>
+					Recipient: <input type='text' name='recipient' id='recipient'/> 
+				</div>
+				<div class='pm-title'>
+					Subject: <input type='text' name='subject' id='subject'/>
+				</div>
+				<div class='pm-icons'>
+					Icon: 
+					{% for i in posticons %}
+						<input type='radio' name='post_icon' id='icon{{ i.id }}' value='{{ i.id }}'>
+						<img class='posticon' src='/static/posticons/{{ i.filename }}''>
+					{% endfor %}
+				</div>
+				<div class='pm-body'>
+					<textarea name='body' id='body' rows='10' cols='60'/></textarea>
+				</div>
+				<div class='pm-submit'>
+					<input type='submit' value='Create'/>
+				</div>
+			</form>
+	</div>
+	<div class='feature-lower'>
+		Contact | User Stats | Posts
+	</div>
+{% endblock %}

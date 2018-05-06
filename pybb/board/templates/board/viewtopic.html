@@ -1,0 +1,59 @@
+{% extends 'board/base.html' %}
+
+{% block content %}
+	<div class='forum-titlebar'>
+		{% if topic %}
+			<span class='forum-title'>{{ topic.title }}</span>
+			<span class='forum-title-info'>{{ topic.reply_count }} posts - Page 1 of 1</span>
+		{% else %}
+			No topic found
+		{% endif %}
+	</div>
+	<div class='post-bg'>
+		<div class='forumb-bg-inner'>
+			{% if topic_post_list %}
+				{% for p in topic_post_list %}
+					<div class='post-container'>
+						<div class='section-post-userprofile'>
+							<span class='post-username'><a href="{% url 'profile' p.author.id %}">{{ p.author }}</a></span><br>
+							<span class='post-fielddata'>Custom Title</span><br>
+							<span class='post-field'>Posts:</span> <span class='post-fielddata'>689</span><br>
+							<span class='post-field'>Join Date:</span> <span class='post-fielddata'>Aug 2, 2014</span><br>
+							<span class='post-field'>Location:</span> <span class='post-fielddata'>Los Angeles</span><br>
+						</div>
+						<div class='section-post-body'>
+							<span class='post-title'>
+								{{ topic.title }}
+							</span><br>
+							<span class='post-detail'>
+							by <span class='post-username'><a href="{% url 'profile' p.author.id %}">{{ p.author }}</a></span> on
+								{{ p.created }}
+							</span><br>
+							<span class='post-body'>
+							{{ p.body|linebreaks }}
+							</span>
+							<br>
+						</div>
+					</div>
+				{% endfor %}
+			{% else %}
+				<p>No replies to this topic</p>
+			{% endif %}
+			<div class='post-container'>
+			{% if user.is_authenticated %}
+				<span class='post-title'>Reply to this post:</span><br>
+				<div class='post-reply-box'>
+					<form action="{% url 'submit_new_reply' topic.id %}" method='post'>
+					{% csrf_token %}
+						<textarea name="post_body" id="post_body" rows="10" cols="60"/></textarea>
+						<br>
+						<input type="submit" value="Reply"/>
+					</form>
+				</div>
+			{% else %}
+				<span class='post-title'>You must be logged in to reply</span><br>
+			{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

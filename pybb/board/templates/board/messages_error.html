@@ -1,0 +1,13 @@
+{% extends 'board/base.html' %}
+
+{% block content %}
+
+	<div class='feature-titlebar'>
+		Private Messages - Error
+	</div>
+	<div class='feature-upper'>
+		<p>An error has occurred.</p>
+		<p><span class='error-msg'>{{ request.build_absolute_uri }}</span></p>
+	</div>
+	
+{% endblock %}

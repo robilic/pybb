@@ -1,0 +1,50 @@
+{% extends 'board/base.html' %}
+
+{% block content %}
+
+	<div class='feature-titlebar'>
+		Private Messages - View
+	</div>
+	<div class='feature-upper'>
+		<div class='pm-left'>
+		</div>
+		<div class='pm-right'>
+			<div class='pm-header'>
+				<div class='pm-icon'>
+					<img src='/static/posticons/{{ private_message.post_icon.filename }}' class='pm-icon'>
+				</div>
+				<div class='pm-subject'>
+					{{ private_message.subject }}
+				</div>
+				<div class='pm-info'>
+					<span class='pm-field'>From: </span><span class='pm-value'>{{ private_message.author.get_username }}</span><br>
+					<span class='pm-field'>Date: </span><span class='pm-value'>{{ private_message.created }}</span>
+				</div>
+				<div class='pm-body'>
+					{{ private_message.body|linebreaks }}
+				</div>			
+			</div>
+
+			{% if request.GET.mode == 'reply' %}
+				<div>Your reply:</div>
+				<div>
+					<form action="{% url 'submit_message' private_message.id %}" method='post'>
+					{% csrf_token %}
+						<textarea name="body" id="body" rows="10" cols="60"/></textarea>
+						<br>
+						<input type="submit" value="Reply">
+						<button type="button" onclick="window.history.back();">Cancel</button>
+					</form>
+				</div>
+			{% else %}
+				<a href="{% url 'messages_view' private_message.id %}?mode=reply">
+					<button>Reply</button>
+				</a>
+				<button>Delete</button>
+			{% endif %}
+		</div>
+	</div>
+	<div class='feature-lower'>
+		Contact | User Stats | Posts
+	</div>
+{% endblock %}

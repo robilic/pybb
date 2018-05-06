@@ -1,0 +1,22 @@
+{% extends 'board/base.html' %}
+
+{% block content %}
+	<div class='forum-titlebar'>
+		Viewing Profile: {{ user.username }}
+	</div>
+	<div class='profile-upper'>
+		<div class='profile-avatar'>
+			<img src="/static/blank-avatar150.png">
+		</div>
+		<div class='profile-info'>
+			<strong>Name:</strong> {{ user.username }}<br>
+			<strong>Location:</strong> {{ profile.location }}<br>
+			<strong>Title:</strong> {{ profile.custom_title }}<br>
+			<strong>Joined:</strong> {{ profile.created }}<br>
+			<strong>Posts:</strong> {{ profile.post_count }}<br>
+		</div>
+	</div>
+	<div class='profile-lower'>
+		Contact | User Stats | Posts
+	</div>
+{% endblock %}
